@@ -1,6 +1,6 @@
 # Feature: User Authorization
 **Feature ID:** 1
-**Branch pattern:** `feature/1-user-authorization`
+**Branch pattern:** `feature-1-user-authorization`
 **Status:** Ready
 **Created:** 11/20/26
 **Input:** Control access to the Warehouse Application by identity and role;

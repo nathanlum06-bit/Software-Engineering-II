@@ -1,7 +1,7 @@
 # Feature: Product & Inventory Management
 
 **Feature ID:** 2  
-**Branch pattern:** `feature/2-product-inventory-management`  
+**Branch pattern:** `feature-2-product-inventory-management`  
 **Status:** Ready  
 **Created:** 11/20/26  
 **Input:** Maintain product information and provide accurate inventory quantities and warehouse locations.
