@@ -8,7 +8,7 @@
 
 **Created:** 2026-09-23
 
-**Input:** Maintain assets and equipment in the specific warehouse - Add, Update, Delete - including Company ID, Company Name, Address, Phone Number, Email, Business Hours
+**Input:** Maintain assets and equipment in the specific warehouse - Add, Update, Delete - including Company ID, Company Name, Address, Phone Number, Email, Business Hours, Warehouse Locations
 
 **Depends On:**
 
@@ -18,47 +18,46 @@
 
 ## User Stories
 
-### US-N.1: Short title
+### US-1.1: Add Information
 
-**As a ** <role>
+**As a** Company Admin
 
-**I want to** <capability>
+**I want to** add information about the company
 
-**So that** <benefit>
+**So that** the company's information is complete up to date. 
 
-**Priority:** P1
 
-**Independent test:** <how to verify this story alone, in one sentence>
+### US-1.2: Update Information
 
-**Acceptance scenarios:** see ### US-N.1 under Gherkin Acceptance Criteria
+**As a** Company Admin
 
-### US-N.2: Short title
+**I want to** update information about the company
 
-**As a** <role>
+**So that** the company's information remains accurate and up to date. 
 
-**I want to** <capability>
+### US-1.2: Delete Information
 
-**So that** <benefit>
+**As a** Company Admin
 
-**Priority:** P1
+**I want to** delete information about the company
 
-**Independent test:** <how to verify this story alone, in one sentence>
-
-**Acceptance scenarios:** see ### US-N.2 under Gherkin Acceptance Criteria
+**So that** the company's information remains accurate and up to date. 
 
 ---
 
 ## Functional Requirements (Rules)
 
-- **FR-001:** System MUST <rule>
-- **FR-002:** System MUST <rule>
-- **FR-003:** System MUST <rule>
+- **FR-001:** System MUST allow an authorized admin to add, update, and delete information about the company
+- **FR-002:** Company MUST include: Company ID, Company Name, Address, Phone Number, Email, Business Hours, Warehouse Locations
+- **FR-003:** System MUST display company information
+- **FR-004:** 
+
 
 ---
 
 ## Key Entities
 
-- **Entity:** short description; relationships in plain language
+- **Company** Buys products in bulk from suppliers and sells to convenience stores.
 - **Entity:** short description; relationships in plain language
 
 ---
