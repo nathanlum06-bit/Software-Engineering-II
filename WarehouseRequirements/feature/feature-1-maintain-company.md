@@ -1,64 +1,109 @@
-# Feature: <Human-readable title>
-**Feature ID:** N
-**Branch pattern:** `feature/N-short-name`
+# Feature: Company Maintenance
+
+**Feature ID:** 1
+
+**Branch pattern:** `feature/feature-1-maintain-company`
+
 **Status:** Draft
-**Created:** YYYY-MM-DD
-**Input:** One sentence .md)
+
+**Created:** 2026-09-23
+
+**Input:** Maintain assets and equipment in the specific warehouse - Add, Update, Delete - including Company ID, Company Name, Address, Phone Number, Email, Business Hours, Warehouse Locations
+
+**Depends On:**
+
 **Related:** optional links to ADRs or reference docs
+
 ---
+
 ## User Stories
-### US-N.1: Short title
-**As a** <role>
-**I want to** <capability>
-**So that** <benefit>
-**Priority:** P1
-**Independent test:** <how to verify this story alone, in one
-sentence>
-**Acceptance scenarios:** see ### US-N.1 under Acceptance
-Criteria
-### US-N.2: Short title
-**As a** <role>
-**I want to** <capability>
-**So that** <benefit>
-**Priority:** P1
-**Independent test:** <how to verify this story alone, in one
-sentence>
-**Acceptance scenarios:** see ### US-N.2 under Acceptance
-Criteria
+
+### US-1.1: Add Information
+
+**As a** Company Admin
+
+**I want to** add information about the company
+
+**So that** the company's information is complete up to date. 
+
+
+### US-1.2: Update Information
+
+**As a** Company Admin
+
+**I want to** update information about the company
+
+**So that** the company's information remains accurate and up to date. 
+
+### US-1.2: Delete Information
+
+**As a** Company Admin
+
+**I want to** delete information about the company
+
+**So that** the company's information remains accurate and up to date. 
+
 ---
-## Requirements
-### Functional Requirements
-- **FR-001**: System MUST
-- **FR-003**:
+
+## Functional Requirements (Rules)
+
+- **FR-001:** System MUST allow an authorized admin to add, update, and delete information about the company
+- **FR-002:** Company MUST include: Company ID, Company Name, Address, Phone Number, Email, Business Hours, Warehouse Locations
+- **FR-003:** System MUST display company information
+- **FR-004:** 
+
+
 ---
-## Assumptions
-- What already exists (e.g. Feature 1 auth is on `dev`)
-- What you are deliberately not building yet
----
-## Edge Cases
-- Empty required field
-- Cross-user access
-- Duplicate / invalid input
----
-## Success Criteria
-- **SC-001**: Every Gherkin scenario has at least one automated
-test before merge
-- **SC-002**: <measurable outcome for this feature>
----
+
 ## Key Entities
-- **Entity**: short description; relationships in plain language
-- **Entity**: ` | |
-### Associations (if known)
-- Short title (same as the story)
+
+- **Company** Buys products in bulk from suppliers and sells to convenience stores.
+- **Entity:** short description; relationships in plain language
+
+---
+
+## Initial Data Model
+
+| Entity | Attribute | Type | Constraints / Notes |
+|---|---|---|---|
+| <Entity> | <attribute> | <type> | <constraints> |
+| <Entity> | <attribute> | <type> | <constraints> |
+| <Entity> | <attribute> | <type> | <constraints> |
+
+### Associations
+
+- **<Association>:** <relationship between entities>
+
+---
+
+## Gherkin Acceptance Criteria
+
+### US-N.1: Short title
+
 #### Scenario: Descriptive name (happy path)
-* **Given** <starting state>
-* **When** <action>
-* **Then** <observable result>
-* **And** <extra result if needed>
+
+- **Given** <starting state>
+- **When** <action>
+- **Then** <observable result>
+- **And** <extra result if needed>
+
 #### Scenario: Descriptive name (failure / edge)
-* **Given**
-* **Then** Short title (same as the story)
+
+- **Given** <starting state>
+- **When** <action>
+- **Then** <observable result>
+
+### US-N.2: Short title
+
 #### Scenario: Descriptive name (happy path)
-* **Given**
-* **Then**
-* **When**
+
+- **Given** <starting state>
+- **When** <action>
+- **Then** <observable result>
+- **And** <extra result if needed>
+
+#### Scenario: Descriptive name (failure / edge)
+
+- **Given** <starting state>
+- **When** <action>
+- **Then** <observable result>
