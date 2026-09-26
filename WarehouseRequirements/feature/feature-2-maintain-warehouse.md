@@ -50,8 +50,7 @@
 
 - **FR-001:** System MUST maintain information for each specific warehouse
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each warehouse
-- **FR-003:** Warehouse MUST include: Warehouse ID, Company ID, Warehouse Name, Address, Phone Number, Email, Operating Hours,
-Aisles, Capacity, Forklift Count
+- **FR-003:** Warehouse MUST include: Warehouse ID, Company ID, Warehouse Name, Address, Phone Number, Email, Operating Hours, Aisles, Capacity, Forklift Count
 - **FR-004:** System MUST save information about each warehouse
 - **FR-005:** System MUST display warehouse information
 - **FR-006:** System MUST check that the information is correct and acceptable before allowing it to be saved (Validation)
@@ -69,7 +68,7 @@ Aisles, Capacity, Forklift Count
 
   - **Capacity:** the maximum number of pallets a warehouse can hold
 
-- **Inventory Record:** one entry in the system that tells you what product / items a warehouse has and how much of it it has.
+- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse.
 
 ---
 ## Initial Data Model
