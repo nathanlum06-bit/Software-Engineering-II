@@ -97,7 +97,7 @@
 - **And** submits the changes
 - **Then** the system displays an error message
 - **And** the invalid information is not saved
-- **And** the system requires the user to re-enter the information correctly
+- **And** the system requires the user to correct the invalid information before submitting again
 
 ### US-1.2: Update Company Information
 
@@ -119,4 +119,4 @@
 - **And** submits the changes
 - **Then** the system displays an error message
 - **And** the invalid information is not saved
-- **And** the system displays the updated company information
+- **And** the system requires the user to correct the invalid information before submitting again
