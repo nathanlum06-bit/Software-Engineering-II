@@ -8,7 +8,7 @@
 
 **Created:** 2026-09-26
 
-**Input:** Maintain customer information - Add, Update, Delete - including Customer ID, Store Name, Address, Phone Number, Email, Contact Name, Business Hours, Route 
+**Input:** Maintain customer information - Add, Update, Delete - including Customer ID, Customer Number Store Name, Address, Phone Number, Email, Contact Name, Business Hours, Route 
 
 **Depends On:** 
 
@@ -47,7 +47,7 @@
 
 - **FR-001:** System MUST maintain information for each customer
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each customer
-- **FR-003:** Customer MUST include: Customer ID, Store Name, Address, Phone Number, Email, Contact Name, Business Hours, Route 
+- **FR-003:** Customer MUST include: Customer ID, Customer Number, Store Name, Address, Phone Number, Email, Contact Name, Business Hours, Route 
 - **FR-004:** System MUST save information about the customer
 - **FR-005:** System MUST display customer information
 - **FR-006:** System MUST check that the information is correct and acceptable before allowing it to be saved (Validation)
@@ -59,13 +59,15 @@
 
 ## Key Entities
 
-- **Customer:** Represents a business or convenience store that orders products from our warehouse company. Includes Customer ID, Store Name, Address, Phone Number, Email, Contact Name, Business Hours, and Route
+- **Customer:** Represents a business or convenience store that orders products from our warehouse company. Includes Customer ID, Customer Number, Store Name, Address, Phone Number, Email, Contact Name, Business Hours, and Route
 
    - **Route:** Represents the delivery route assigned to a customer. (For complexity sake, the route is stored directly as part of the Customer information rather than being maintained as a separate feature.) 
 
       - **Route Includes:** Route ID, Route Name/Number, Delivery Schedule, Delivery Day, Start Time, End Time, Assigned Driver, Assigned Truck, Number of Stops
 
 - **Product:** Represents a product supplied by a supplier and sold by our company to customers
+
+- **Order:** Represents an order placed by a customer for products from our warehouse company.
 ---
 
 ## Initial Data Model
@@ -73,6 +75,7 @@
 | Entity | Attribute | Type | Constraints / Notes |
 |---|---|---|---|
 | Customer | CustomerID | Integer | Primary Key, Unique Identifier, Required |
+| Customer | CustomerNumber | Integer | Unique Identifier, Required, Assigned by the company |
 | Customer | StoreName | String | Required |
 | Customer | Address | String | Required |
 | Customer | PhoneNumber | String | Required |
@@ -85,8 +88,6 @@
 ### Associations
 
 - **Customer &rarr; Order:** A customer can place multiple orders, and each order is associated with one customer.
-
-- **Order &rarr; Product:** An order can contain multiple products, and each product can appear on multiple orders.
 
 ---
 ## Gherkin Acceptance Criteria

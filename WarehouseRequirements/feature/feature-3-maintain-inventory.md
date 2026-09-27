@@ -8,11 +8,11 @@
 
 **Created:** 2026-09-26
 
-**Input:** Maintain specific information on inventory - Add, Update, Delete - including Invetory ID, Warehouse ID, Product ID, Quantity, Storage Location, Reorder Level
+**Input:** Maintain specific information on inventory - Add, Update, Delete - including Inventory ID, Warehouse ID, Product ID, Bin, Slot, Case Quantity, Quantity, Minimum Inventory, Maximum Inventory, On Order, and Order Case
 
-**Depends On:** feature-2-maintain-warehouse
+**Depends On:** feature-2-maintain-warehouse, feature-4-maintain-product
 
-**Related:** feature-4-maintain-product
+**Related:** 
 
 ---
 
@@ -43,33 +43,34 @@
 
 **So that** the company can maintain accurate information about the products and quantities stored in its warehouses
 
-
 ---
 
 ## Functional Requirements (Rules)
 
 - **FR-001:** System MUST maintain information for each inventory record
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each inventory record
-- **FR-003:** Inventory MUST include: Inventory ID, Warehouse ID, Product ID, Quantity, Storage Location, Reorder Level
+- **FR-003:** Inventory MUST include: Inventory ID, Warehouse ID, Product ID, Bin, Slot, Case Quantity, Quantity, Minimum Inventory, Maximum Inventory, On Order, and Order Case
 - **FR-004:** System MUST save information about each inventory record
 - **FR-005:** System MUST display inventory record information
 - **FR-006:** System MUST check that the information is correct and acceptable before allowing it to be saved (Validation)
 - **FR-007:** System MUST only allow authorized users to maintain inventory record information 
 - **FR-008:** System MUST display error messages if required input fields are invalid or empty 
-- **FR-009:** System MUST prevent an inventory record from being deleted while its quantity is greater than 0
+- **FR-009:** System MUST prevent an inventory record from being deleted while its quantity or On Order amount is greater than 0.
 - **FR-010:** System MUST provide confirmation before deleting an inventory record
 ---
 
 ## Key Entities
 
-- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse
+- **Inventory:** Represents the amount and location of a specific product stored at a specific warehouse. Includes Inventory ID, Warehouse ID, Product ID, Bin, Slot, Case Quantity, Quantity, Minimum Inventory, Maximum Inventory, On Order, and Order Case.
 
-    - **Quantity**: the number / stock of pallets of a specific product
-    - **Storage Location**: identifies where the product is located in the warehouse
-    - **Reorder Level**: the threshold (baseline number) thats used to determined when more of a product should be ordered
-
-
-
+  - **Bin:** Identifies the general storage area where the product is located.
+  - **Slot:** Identifies the specific position within the bin where the product is stored.
+  - **Case Quantity:** Identifies how many individual units of the product are contained in one case.
+  - **Quantity:** Represents the current amount of the product in inventory.
+  - **Minimum Inventory:** Represents the minimum amount of the product that should normally be kept in inventory.
+  - **Maximum Inventory:** Represents the maximum amount of the product that should normally be kept in inventory.
+  - **On Order:** Represents the quantity of the product that has already been ordered from a supplier but has not yet been received.
+  - **Order Case:** Represents the number of cases normally ordered when restocking the product.
 ---
 
 ## Initial Data Model
@@ -77,18 +78,23 @@
 | Entity | Attribute | Type | Constraints / Notes |
 |---|---|---|---|
 | Inventory | InventoryID | Integer | Primary Key, Unique Identifier, Required |
-| Inventory | WarehouseID | Integer | Foreign Key, Required |
-| Inventory | ProductID | Integer | Foreign Key, Required |
-| Inventory | Quantity | Integer | Required, Number of pallets, Must be 0 or greater |
-| Inventory | StorageLocation | String | Required, Identifies where the product is stored |
-| Inventory | ReorderLevel | Integer | Required, Number of pallets, Must be 0 or greater |
+| Inventory | WarehouseID | Integer | Foreign Key, Required, Identifies the warehouse storing the inventory |
+| Inventory | ProductID | Integer | Foreign Key, Required, Identifies the product being stored |
+| Inventory | Bin | String | Required, Identifies the general storage area |
+| Inventory | Slot | String | Required, Identifies the specific storage position |
+| Inventory | CaseQuantity | Integer | Required, Number of individual units contained in one case |
+| Inventory | Quantity | Integer | Required, Current inventory quantity |
+| Inventory | MinimumInventory | Integer | Required, Minimum desired inventory level |
+| Inventory | MaximumInventory | Integer | Required, Maximum desired inventory level |
+| Inventory | OnOrder | Integer | Required, Quantity ordered from a supplier but not yet received |
+| Inventory | OrderCase | Integer | Required, Number of cases normally ordered when restocking |
 
 ### Associations
 
 
 - **Warehouse &rarr; Inventory:** A warehouse can have multiple inventory records, and each inventory record belongs to one warehouse
 
- - **Product &rarr; Inventory:** A product can have multiple inventory records, and each inventory record tracks the product's quantity, storage location, and reorder level at each warehouse
+ - **Product &rarr; Inventory:** A product can have multiple inventory records, and each inventory record tracks the product's quantity, storage location, minimum inventory, maximum inventory, and ordering information at each warehouse.
 
 ---
 

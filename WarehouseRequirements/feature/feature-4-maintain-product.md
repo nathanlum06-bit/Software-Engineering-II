@@ -8,11 +8,10 @@
 
 **Created:** 2026-09-26
 
-**Input:** Maintain specific information on an individual product - Add, Update, Delete - including Product ID, Product Name, SKU, UPC, Price, Supplier ID, Description
+**Input:** Maintain specific information on an individual product - Add, Update, Delete - including Product ID, Product Name, SKU, Product UPC, Case UPC, Price, Supplier ID, Description
 
-**Depends On:** feature-3-maintain-inventory
-
-**Related:** feature-5-maintain-supplier and feature-6-maintain-customer
+**Depends On:** feature-5-maintain-supplier
+**Related:** feature-3-maintain-inventory, feature-6-maintain-customer
 
 ---
 
@@ -48,13 +47,13 @@
 
 - **FR-001:** System MUST maintain information for each specific product
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each product
-- **FR-003:** Product MUST include Product ID, Product Name, SKU, UPC, Price, Supplier ID, Description
+- **FR-003:** Product MUST include Product ID, Product Name, SKU, Product UPC, Case UPC, Price, Supplier ID, Description
 - **FR-004:** System MUST save information about each product
 - **FR-005:** System MUST display product information
 - **FR-006:** System MUST check that the information is correct and acceptable before allowing it to be saved (Validation)
 - **FR-007:** System MUST only allow authorized users to maintain product information 
 - **FR-008:** System MUST display error messages if required input fields are invalid or empty 
-- **FR-009:** System MUST prevent a product from being deleted while a inventory record is tied to it
+- **FR-009:** System MUST prevent a product from being deleted while an inventory record is tied to it
 - **FR-010:** System MUST provide confirmation before deleting a product
 ---
 
@@ -62,9 +61,13 @@
 
 - **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse.
 
-- **Product:** Represents a specific product that the company sells. Includes Product ID, Product Name, SKU, UPC, Price, Supplier ID, and Description.
-  - **SKU:** A company-assigned identifier used to track and manage a specific product internally.
-  - **UPC:** A standardized product identifier associated with the product's barcode.
+- **Product:** Represents a specific product that the company sells. Includes Product ID, Product Name, SKU, Product UPC, Case UPC, Price, Supplier ID, and Description
+  - **SKU:** A company-assigned identifier used to track and manage a specific product internally
+  - **Product UPC:** A standardized barcode identifier for an individual product
+  - **Case UPC:** A standardized barcode identifier for a case containing the product
+
+- **Supplier:** Represents a company or business that provides the product to our warehouse company.
+
 ---
 
 ## Initial Data Model
@@ -74,19 +77,18 @@
 | Product | ProductID | Integer | Primary Key, Unique Identifier, Required |
 | Product | ProductName | String | Required |
 | Product | SKU | String | Required, Unique Identifier |
-| Product | UPC | String | Required, Unique Barcode Identifier |
+| Product | ProductUPC | String | Required, Unique Barcode Identifier |
+| Product | CaseUPC | String | Required, Unique Barcode Identifier for the product case |
 | Product | Price | Decimal | Required, Must be 0 or greater |
 | Product | SupplierID | Integer | Foreign Key, Required |
 | Product | Description | String | Optional |
 
 ### Associations
 
-- **Product &rarr; Inventory:** A product can have multiple inventory records, and each inventory record tracks the product's quantity, storage location, and reorder level at each warehouse.
+- **Product &rarr; Inventory:** A product can have multiple inventory records, and each inventory record tracks the product's quantity, storage location, and inventory levels at each warehouse.
 
 - **Supplier &rarr; Product**: A supplier can provide multiple products, and each product is associated with a supplier through Supplier ID
-
 ---
-
 ## Gherkin Acceptance Criteria
 
 ### US-4.1: Add Product

@@ -8,11 +8,10 @@
 
 **Created:** 2026-09-23
 
-**Input:** Maintain supplier information - Add, Update, Delete - including Supplier ID, Supplier Name, Address, Phone Number, Email, Website, Contact Name, Business Hours
+**Input:** Maintain supplier information - Add, Update, Delete - including Supplier ID, Supplier Name, Address, Phone Number, Email, Website, Contact Name, Business Hours, Ship Days, Terms, Min Order
 
-**Depends On:** feature-4-maintain-product
-
-**Related:** feature-7-maintain-supplier-orderForm
+**Depends On:**
+**Related:** feature-4-maintain-product, feature-7-maintain-supplier-orderForm
 ---
 
 ## User Stories
@@ -41,28 +40,34 @@
 
 **So that** the supplier's information remains accurate and up to date
 
-
 ---
 
 ## Functional Requirements (Rules)
 
 - **FR-001:** System MUST maintain information for each supplier.
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each supplier
-- **FR-003:** Supplier MUST include: Supplier ID, Supplier Name, Address, Phone Number, Email, Website, Contact Name, Business Hours
+- **FR-003:** Supplier MUST include: Supplier ID, Supplier Name, Address, Phone Number, Email, Website, Contact Name, Business Hours, Ship Days, Terms, Min Order
 - **FR-004:** System MUST save information about the supplier
 - **FR-005:** System MUST display supplier information
 - **FR-006:** System MUST check that the information is correct and acceptable before allowing it to be saved (Validation)
 - **FR-007:** System MUST only allow authorized users to maintain supplier information 
 - **FR-008:** System MUST display error messages if required input fields are invalid or empty 
-- **FR-009:** System MUST prevent a supplier from being deleted while a product is associated with it.
+- **FR-009:** System MUST prevent a supplier from being deleted while a product or supplier order is associated with it
 - **FR-010:** System MUST provide confirmation before deleting a supplier
 ---
 
 ## Key Entities
 
-- **Supplier:** Represents a company or business that provides products to our warehouse company. Includes Supplier ID, Supplier Name, Address, Phone Number, Email, Website, Contact Name, and Business Hours.
+- **Supplier:** Represents a company or business that provides products to our warehouse company. Includes Supplier ID, Supplier Name, Address, Phone Number, Email, Website, Contact Name, Business Hours, Ship Days, Terms, and Min Order.
+
+  - **Ship Days:** The number of days required for the supplier to ship an order after it is placed.
+  - **Terms:** The conditions or requirements established by the supplier for placing and receiving orders.
+  - **Min Order:** The minimum quantity or value that must be ordered from the supplier.
+
+- **Supplier Order:** Represents an order placed by the warehouse company with a supplier.
 
  **Product:** Represents a product supplied by the supplier and sold by our company.
+
 ---
 
 ## Initial Data Model
@@ -77,7 +82,9 @@
 | Supplier | Website | String | Optional, Valid URL Format |
 | Supplier | ContactName | String | Required |
 | Supplier | BusinessHours | String | Required |
-
+| Supplier | ShipDays | Integer | Required, Number of days required for supplier delivery |
+| Supplier | Terms | String | Required, Defines the supplier's ordering terms |
+| Supplier | MinOrder | Decimal | Required, Minimum order requirement |
 
 ### Associations
 
@@ -135,16 +142,16 @@
 
 #### Scenario: Delete supplier information (happy path)
 
-- **Given** a supplier has no products and is no longer needed
+- **Given** a supplier has no products or supplier orders associated with it
 - **And** the user is an authorized Company Admin
 - **When** the Admin selects the supplier to delete
 - **And** confirms the deletion
 - **Then** the system deletes the supplier
 - **And** the supplier is no longer displayed in the system
 
-#### Scenario: Cannot delete supplier with products associated (failure / edge)
+#### Scenario: Cannot delete supplier with products or orders associated (failure / edge)
 
-- **Given** an supplier has a products associated with it
+- **Given** a supplier has products or supplier orders associated with it
 - **And** the user is an authorized Company Admin
 - **When** the Admin attempts to delete the supplier
 - **Then** the system displays an error message

@@ -67,9 +67,8 @@
 
 - **Supplier:** Represents a company or business that provides products to our warehouse company.
 
-- **Product:** Represents a specific product that the company is buying. Includes Product ID, Product Name, SKU, UPC, Price, Supplier ID, and Description.
-  
-  - **SKU:** A company-assigned identifier used to track and manage a specific product internally.
+- **Product:** Represents a specific product that the company sells. Includes Product ID, Product Name, SKU, Product UPC, Case UPC, Price, Supplier ID, and Description
+  - **SKU:** A company-assigned identifier used to track and manage a specific product internally
 ---
 
 ## Initial Data Model
