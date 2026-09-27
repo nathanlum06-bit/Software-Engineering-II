@@ -8,7 +8,7 @@
 
 **Created:** 2026-09-23
 
-**Input:** Maintain company information - Add / Update - including Company ID, Company Name, Address, Phone Number, Email, Website, Business Hours
+**Input:** Maintain company information - Create / Update - including Company ID, Company Name, Address, Phone Number, Email, Website, Business Hours
 
 **Depends On:**
 
@@ -18,13 +18,13 @@
 
 ## User Stories
 
-### US-1.1: Add Information
+### US-1.1: Create Company Information
 
 **As a** Company Admin
 
-**I want to** add missing information about the company
+**I want to** create the company's initial information
 
-**So that** the company's information is complete and up to date. 
+**So that** the system reflects the company's baseline information
 
 
 ### US-1.2: Update Information
@@ -41,7 +41,7 @@
 ## Functional Requirements (Rules)
 
 - **FR-001:** System MUST maintain information for one company.
-- **FR-002:** System MUST allow an authorized admin to add and update information about the company
+- **FR-002:** System MUST allow an authorized admin to create and update information about the company
 - **FR-003:** Company MUST include: Company ID, Company Name, Address, Phone Number, Email, Website, Business Hours
 - **FR-004:** System MUST save information about the company
 - **FR-005:** System MUST display company information
@@ -77,24 +77,24 @@
 
 ## Gherkin Acceptance Criteria
 
-### US-1.1: Add Company Information 
+### US-1.1: Create Company
 
-#### Scenario: Add missing company information (happy path)
+#### Scenario: Create company information (happy path)
 
-- **Given** some company information is missing
+- **Given** no company has been initialized in the system
 - **And** the user is an authorized Company Admin
-- **When** the Admin enters the missing information
-- **And** submits the changes
+- **When** the Admin enters the company information
+- **And** submits the information
 - **Then** the system validates the information
 - **And** the system saves the company information
-- **And** the display updates with those changes
+- **And** the system displays the company information
 
-#### Scenario: Add invalid company information (failure / edge)
+#### Scenario: Create company with invalid information (failure / edge)
 
-- **Given** some company information is missing
+- **Given** no company has been initialized in the system
 - **And** the user is an authorized Company Admin
-- **When** the Admin enters invalid information
-- **And** submits the changes
+- **When** the Admin enters invalid company information
+- **And** submits the information
 - **Then** the system displays an error message
 - **And** the invalid information is not saved
 - **And** the system requires the user to correct the invalid information before submitting again
@@ -115,7 +115,7 @@
 
 - **Given** some company information is outdated or needs to be changed 
 - **And** the user is an authorized Company Admin
-- **When** the Admin tries entering invalid information for existing company information 
+- **When** the Admin enters invalid information for existing company information 
 - **And** submits the changes
 - **Then** the system displays an error message
 - **And** the invalid information is not saved
