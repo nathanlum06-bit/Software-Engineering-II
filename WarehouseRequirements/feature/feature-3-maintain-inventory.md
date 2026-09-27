@@ -24,7 +24,7 @@
 
 **I want to** add new inventory records
 
-**So that** the company can maintain accurate information about the products and quantities stored in its warehouses.
+**So that** the company can maintain accurate information about the products and quantities stored in its warehouses
 
 
 ### US-3.2: Update Information
@@ -33,7 +33,7 @@
 
 **I want to** update information about each inventory record
 
-**So that** the company can maintain accurate information about the products and quantities stored in its warehouses.
+**So that** the company can maintain accurate information about the products and quantities stored in its warehouses
 
 ### US-3.3: Delete Information
 
@@ -41,7 +41,7 @@
 
 **I want to** delete inventory records that are no longer needed
 
-**So that** the company can maintain accurate information about the products and quantities stored in its warehouses.
+**So that** the company can maintain accurate information about the products and quantities stored in its warehouses
 
 
 ---
@@ -62,11 +62,11 @@
 
 ## Key Entities
 
-- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse.
+- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse
 
     - **Quantity**: the number / stock of pallets of a specific product
     - **Storage Location**: identifies where the product is located in the warehouse
-    - **Reorder Level**: the threshold (baseline number) thats used to determined when more of a product should be ordered.
+    - **Reorder Level**: the threshold (baseline number) thats used to determined when more of a product should be ordered
 
 
 
@@ -86,11 +86,9 @@
 ### Associations
 
 
-- **Warehouse &rarr; Inventory:** A warehouse can have multiple inventory records, and each inventory record belongs to one warehouse.
+- **Warehouse &rarr; Inventory:** A warehouse can have multiple inventory records, and each inventory record belongs to one warehouse
 
- - **Product &rarr; Inventory:** A product can have multiple inventory records, and each inventory record tracks the product's quantity, storage location, and reorder level at each warehouse.
-
-
+ - **Product &rarr; Inventory:** A product can have multiple inventory records, and each inventory record tracks the product's quantity, storage location, and reorder level at each warehouse
 
 ---
 

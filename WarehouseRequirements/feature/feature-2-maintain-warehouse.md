@@ -24,7 +24,7 @@
 
 **I want to** add new warehouses 
 
-**So that** the company can maintain accurate information about its warehouse facilities.
+**So that** the company can maintain accurate information about its warehouse facilities
 
 
 ### US-2.2: Update Information
@@ -33,7 +33,7 @@
 
 **I want to** update information about each warehouse
 
-**So that** the company can maintain accurate information about its warehouse facilities.
+**So that** the company can maintain accurate information about its warehouse facilities
 
 ### US-2.3: Delete Information
 
@@ -41,7 +41,7 @@
 
 **I want to** delete warehouses that are no longer in use
 
-**So that** the company can maintain accurate information about its warehouse facilities.
+**So that** the company can maintain accurate information about its warehouse facilities
 
 
 ---
@@ -56,7 +56,7 @@
 - **FR-006:** System MUST check that the information is correct and acceptable before allowing it to be saved (Validation)
 - **FR-007:** System MUST only allow authorized users to maintain warehouse information 
 - **FR-008:** System MUST display error messages if required input fields are invalid or empty 
-- **FR-009:** System MUST prevent a warehouse from being deleted while it contains inventory.
+- **FR-009:** System MUST prevent a warehouse from being deleted while it contains inventory
 - **FR-010:** System MUST provide confirmation when deleting a warehouse
 ---
 
@@ -68,7 +68,7 @@
 
   - **Capacity:** the maximum number of pallets a warehouse can hold
 
-- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse.
+- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse
 
 ---
 ## Initial Data Model
@@ -90,9 +90,7 @@
 
 - **Company &rarr; Warehouse :** One company can have multiple warehouses, and each warehouse refers to the company using Company ID
 
-- **Warehouse &rarr; Inventory:** A warehouse can have multiple inventory records, and each inventory record belongs to one warehouse.
-
-
+- **Warehouse &rarr; Inventory:** A warehouse can have multiple inventory records, and each inventory record belongs to one warehouse
 ---
 
 ## Gherkin Acceptance Criteria
@@ -135,7 +133,7 @@
 
 - **Given** some warehouse information is outdated or needs to be changed 
 - **And** the user is an authorized Company Admin
-- **When** the Admin tries entering invalid information for existing warehouse information 
+- **When** the Admin enters invalid information for existing warehouse information 
 - **And** submits the changes
 - **Then** the system displays an error message
 - **And** the invalid information is not saved

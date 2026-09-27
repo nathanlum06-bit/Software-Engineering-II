@@ -33,7 +33,7 @@
 
 **I want to** update information about the company
 
-**So that** the company's information remains accurate and up to date. 
+**So that** the company's information remains accurate and up to date
 
 
 ---
@@ -54,7 +54,7 @@
 
 - **Company**: Buys products in bulk from suppliers and sells to convenience stores. Includes: Company ID, Company Name, Address, Phone Number, Email, Website, Business Hours
 
-- **Warehouse:** Represents a warehouse associated with the company.
+- **Warehouse:** Represents a warehouse associated with the company
 
 ---
 
