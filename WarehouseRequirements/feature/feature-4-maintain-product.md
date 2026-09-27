@@ -65,9 +65,6 @@
 - **Product:** Represents a specific product that the company sells. Includes Product ID, Product Name, SKU, UPC, Price, Supplier ID, and Description.
   - **SKU:** A company-assigned identifier used to track and manage a specific product internally.
   - **UPC:** A standardized product identifier associated with the product's barcode.
-
-
-
 ---
 
 ## Initial Data Model
