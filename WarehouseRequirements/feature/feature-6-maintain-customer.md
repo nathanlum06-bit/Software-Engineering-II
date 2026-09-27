@@ -37,7 +37,7 @@
 
 **As a** Company Admin
 
-**I want to** delete customers that the company no longer supplies
+**I want to** delete customers that the company no longer supplies products to
 
 **So that** the customer's information remains accurate and up to date
 
@@ -61,7 +61,7 @@
 
 - **Customer:** Represents a business or convenience store that orders products from our warehouse company. Includes Customer ID, Store Name, Address, Phone Number, Email, Contact Name, Business Hours, and Route
 
-   - **Route:** Represents the delivery route assigned to a customer. (For complexity sake, the route is stored directly as part of the Customer information rather than being maintained as a separate entity.) 
+   - **Route:** Represents the delivery route assigned to a customer. (For complexity sake, the route is stored directly as part of the Customer information rather than being maintained as a separate feature.) 
 
       - **Route Includes:** Route ID, Route Name/Number, Delivery Schedule, Delivery Day, Start Time, End Time, Assigned Driver, Assigned Truck, Number of Stops
 
@@ -84,7 +84,9 @@
 
 ### Associations
 
-WORK ON
+- **Customer &rarr; Order:** A customer can place multiple orders, and each order is associated with one customer.
+
+- **Order &rarr; Product:** An order can contain multiple products, and each product can appear on multiple orders.
 
 ---
 ## Gherkin Acceptance Criteria
@@ -147,7 +149,7 @@ WORK ON
 
 #### Scenario: Cannot delete customer with orders associated (failure / edge)
 
-- **Given** a customer has a orders associated with it
+- **Given** a customer has orders associated with it
 - **And** the user is an authorized Company Admin
 - **When** the Admin attempts to delete the customer
 - **Then** the system displays an error message
