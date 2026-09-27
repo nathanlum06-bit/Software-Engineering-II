@@ -8,7 +8,7 @@
 
 **Created:** 2026-09-23
 
-**Input:** Maintain supplier order information - Add, Update, Delete - including Ordered By (Company ID), Ordered From (Supplier ID), Customer Number, Order Date, P.O Number, SKU, Description, Cases, Price, Product Total, Order Total, Authorized By, Warehouse ID
+**Input:** Maintain supplier order information - Add, Update, Delete - including Ordered By (Company ID), Ordered From (Supplier ID), Customer Number, Order Date, P.O Number, SKU, Description, Cases, Price, Product Total, Order Total, Authorized By, Warehouse ID, Bill Of Lading
 
 **Depends On:** feature-1-maintain-company, feature-2-maintain-warehouse, feature-4-maintain-product, feature-5-maintain-supplier
 
@@ -18,11 +18,11 @@
 
 ## User Stories
 
-### US-7.1: Create Supplier Order
+### US-7.1: Add Supplier Order
 
 **As a** Company Admin
 
-**I want to** create an order form for a supplier
+**I want to** add an order form for a supplier
 
 **So that** the company can restock products on pallets
 
@@ -48,7 +48,7 @@
 
 - **FR-001:** System MUST maintain information for each order for a supplier
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each order
-- **FR-003:** Supplier Order MUST include Company ID, Supplier ID, Customer Number, Order Date, P.O. Number, Authorized By, Order Total, and Warehouse ID. 
+- **FR-003:** Supplier Order MUST include Company ID, Supplier ID, Customer Number, Order Date, P.O. Number, Authorized By, Order Total, Warehouse ID, Bill Of Lading. 
 - **FR-004:** Each Supplier Order Line MUST include SKU, Description, Cases, Price, and Product Total.
 - **FR-005:** System MUST save information about the order
 - **FR-006:** System MUST display order information
@@ -69,6 +69,8 @@
 
 - **Product:** Represents a specific product that the company sells. Includes Product ID, Product Name, SKU, Product UPC, Case UPC, Price, Supplier ID, and Description
   - **SKU:** A company-assigned identifier used to track and manage a specific product internally
+
+- **Bill of Lading:** A document that records the shipment of products being transported from a supplier to the warehouse or from the warehouse to a customer. It includes shipment details and identifies the products and quantities being transported
 ---
 
 ## Initial Data Model
@@ -84,12 +86,14 @@
 | SupplierOrder | AuthorizedBy | String | Required, Identifies the person who authorized the order |
 | SupplierOrder | OrderTotal | Decimal | Required, Calculated from the total of all ProductTotal values |
 | SupplierOrder | WarehouseID | Integer | Foreign Key, Required, Identifies the warehouse receiving the order |
+| SupplierOrder | BOL | String | Required, References Bill of Lading |
 | SupplierOrderLine | OrderID | Integer | Foreign Key, Required, References SupplierOrder |
 | SupplierOrderLine | SKU | String | Foreign Key, Required, References Product SKU |
 | SupplierOrderLine | Description | String | Required, Describes the product |
 | SupplierOrderLine | Cases | Integer | Required, Must be greater than 0 |
 | SupplierOrderLine | Price | Decimal | Required, Price for the order line, Must be 0 or greater |
 | SupplierOrderLine | ProductTotal | Decimal | Required, Calculated from Cases × Price |
+
 
 ### Associations
 
@@ -103,19 +107,19 @@
 ---
 ## Gherkin Acceptance Criteria
 
-### US-7.1: Create Supplier Order 
+### US-7.1: Add Supplier Order 
 
-#### Scenario: Create Supplier Order Form (happy path)
+#### Scenario: Add Supplier Order Form (happy path)
 
 - **Given** the company is now ordering products from a supplier
 - **And** the user is an authorized Company Admin
-- **When** the Admin creates the new order information
+- **When** the Admin adds the new order information
 - **And** submits the new order information
 - **Then** the system validates the information
 - **And** the system saves the order information
 - **And** the system displays the new order information
 
-#### Scenario: Create Supplier Order Form with Invalid Information (failure / edge)
+#### Scenario: Add Supplier Order Form with Invalid Information (failure / edge)
 
 - **Given** the company is now ordering products from a supplier
 - **And** the user is an authorized Company Admin

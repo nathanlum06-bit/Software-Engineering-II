@@ -18,11 +18,11 @@
 
 ## User Stories
 
-### US-8.1: Create Customer Order
+### US-8.1: Add Customer Order
 
 **As a** Company Admin
 
-**I want to** create an order form for a customer
+**I want to** add an order form for a customer
 
 **So that** the company can take orders from customers
 
@@ -69,6 +69,8 @@
 
 - **Product:** Represents a specific product that the company sells. Includes Product ID, Product Name, SKU, Product UPC, Case UPC, Price, Supplier ID, and Description
   - **SKU:** A company-assigned identifier used to track and manage a specific product internally
+
+- **Bill of Lading:** A document that records the shipment of products being transported from a supplier to the warehouse or from the warehouse to a customer. It includes shipment details and identifies the products and quantities being transported
 ---
 
 ## Initial Data Model
@@ -84,12 +86,14 @@
 | CustomerOrder | AuthorizedBy | String | Required, Identifies the person who authorized the order |
 | CustomerOrder | OrderTotal | Decimal | Required, Calculated from the total of all ProductTotal values |
 | CustomerOrder | WarehouseID | Integer | Foreign Key, Required, Identifies the warehouse fulfilling the order |
+| CustomerOrder | BOL | String | Required, References Bill of Lading |
 | CustomerOrderLine | OrderID | Integer | Foreign Key, Required, References CustomerOrder |
 | CustomerOrderLine | SKU | String | Foreign Key, Required, References Product SKU |
 | CustomerOrderLine | Description | String | Required, Describes the product |
 | CustomerOrderLine | Cases | Integer | Required, Must be greater than 0 |
 | CustomerOrderLine | Price | Decimal | Required, Must be greater than or equal to 0, Price for the order line |
 | CustomerOrderLine | ProductTotal | Decimal | Required, Calculated from Cases × Price |
+
 
 
 ### Associations
@@ -105,19 +109,19 @@
 ---
 ## Gherkin Acceptance Criteria
 
-### US-8.1: Create Customer Order
+### US-8.1: Add Customer Order
 
-#### Scenario: Create Customer Order Form (happy path)
+#### Scenario: Add Customer Order Form (happy path)
 
 - **Given** a customer wants to order products from our warehouse company
 - **And** the user is an authorized Company Admin
-- **When** the Admin creates the new order information
+- **When** the Admin adds the new order information
 - **And** submits the new order information
 - **Then** the system validates the information
 - **And** the system saves the order information
 - **And** the system displays the new order information
 
-#### Scenario: Create Customer Order Form with Invalid Information (failure / edge)
+#### Scenario: Add Customer Order Form with Invalid Information (failure / edge)
 
 - **Given** a customer wants to order products from our warehouse company
 - **And** the user is an authorized Company Admin
