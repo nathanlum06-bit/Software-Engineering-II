@@ -8,7 +8,7 @@
 
 **Created:** 2026-09-23
 
-**Input:** Maintain customer order information - Add, Update, Delete - including Ordered By (Customer ID), Ordered From (Company ID), Customer Number, Order Date, P.O Number, SKU, Description, Cases, Price, Product Total, Order Total, Authorized By, Warehouse ID, Order Status
+**Input:** Maintain customer order information - Add, Update, Delete - including Ordered By (Customer ID), Ordered From (Company ID), Customer Number, Order Date, P.O Number, SKU, Description, Cases, Price, Product Total, Order Total, Authorized By, Warehouse ID
 
 **Depends On:** feature-1-maintain-company, feature-2-maintain-warehouse, feature-4-maintain-product, feature-6-maintain-customer
 
@@ -48,7 +48,7 @@
 
 - **FR-001:** System MUST maintain information for each order for a customer
 - **FR-002:** System MUST allow an authorized admin to add, update, delete information about each order
-- **FR-003:** Customer Order MUST include Company ID, Customer ID, Customer Number, Order Date, P.O. Number, Authorized By, Order Total, Warehouse ID, and Order Status
+- **FR-003:** Customer Order MUST include Company ID, Customer ID, Customer Number, Order Date, P.O. Number, Authorized By, Order Total, Warehouse ID
 - **FR-004:** Each Customer Order Line MUST include SKU, Description, Cases, Price, and Product Total.
 - **FR-005:** System MUST save information about the order
 - **FR-006:** System MUST display order information
@@ -88,9 +88,9 @@
 | CustomerOrderLine | SKU | String | Foreign Key, Required, References Product SKU |
 | CustomerOrderLine | Description | String | Required, Describes the product |
 | CustomerOrderLine | Cases | Integer | Required, Must be greater than 0 |
-| CustomerOrderLine | Price | Decimal | Required, Price for the order line |
+| CustomerOrderLine | Price | Decimal | Required, Must be greater than or equal to 0, Price for the order line |
 | CustomerOrderLine | ProductTotal | Decimal | Required, Calculated from Cases × Price |
-| CustomerOrder | OrderStatus | String | Required, Tracks whether the order is pending or accepted |
+
 
 ### Associations
 
@@ -100,7 +100,8 @@
 
 - **Customer Order Line &rarr; Product:** A customer order line is associated with one product through SKU, and a product can appear on multiple customer order lines
 
-- **Warehouse &rarr; Customer Order:** A warehouse can fulfill multiple customer orders, and each customer order is associated with one receiving warehouse through Warehouse ID
+- **Warehouse &rarr; Customer Order:** A warehouse can fulfill multiple customer orders, and each customer order is associated with one fulfilling warehouse through Warehouse ID
+
 ---
 ## Gherkin Acceptance Criteria
 

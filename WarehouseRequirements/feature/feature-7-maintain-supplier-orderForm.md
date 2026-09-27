@@ -87,8 +87,8 @@
 | SupplierOrderLine | OrderID | Integer | Foreign Key, Required, References SupplierOrder |
 | SupplierOrderLine | SKU | String | Foreign Key, Required, References Product SKU |
 | SupplierOrderLine | Description | String | Required, Describes the product |
-| SupplierOrderLine | Cases | Integer | Required, Must be 0 or greater |
-| SupplierOrderLine | Price | Decimal | Required, Price for the order line |
+| SupplierOrderLine | Cases | Integer | Required, Must be greater than 0 |
+| SupplierOrderLine | Price | Decimal | Required, Price for the order line, Must be 0 or greater |
 | SupplierOrderLine | ProductTotal | Decimal | Required, Calculated from Cases × Price |
 
 ### Associations

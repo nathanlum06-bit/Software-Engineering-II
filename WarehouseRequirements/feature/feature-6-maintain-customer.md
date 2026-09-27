@@ -141,7 +141,8 @@
 
 #### Scenario: Delete customer information (happy path)
 
-- **Given** a customer no longer orders products from our company
+- **Given** a customer no longer orders products from our company 
+- **And** has no associated orders
 - **And** the user is an authorized Company Admin
 - **When** the Admin selects the customer to delete
 - **And** confirms the deletion

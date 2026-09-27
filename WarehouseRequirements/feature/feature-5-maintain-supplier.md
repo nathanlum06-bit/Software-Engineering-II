@@ -62,7 +62,7 @@
 
   - **Ship Days:** The number of days required for the supplier to ship an order after it is placed.
   - **Terms:** The conditions or requirements established by the supplier for placing and receiving orders.
-  - **Min Order:** The minimum quantity or value that must be ordered from the supplier.
+  - **Min Order:** The minimum dollar amount that must be ordered from the supplier.
 
 - **Supplier Order:** Represents an order placed by the warehouse company with a supplier.
 

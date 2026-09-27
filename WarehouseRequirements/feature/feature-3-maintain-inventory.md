@@ -71,6 +71,8 @@
   - **Maximum Inventory:** Represents the maximum amount of the product that should normally be kept in inventory.
   - **On Order:** Represents the quantity of the product that has already been ordered from a supplier but has not yet been received.
   - **Order Case:** Represents the number of cases normally ordered when restocking the product.
+
+- **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse.
 ---
 
 ## Initial Data Model
@@ -82,15 +84,14 @@
 | Inventory | ProductID | Integer | Foreign Key, Required, Identifies the product being stored |
 | Inventory | Bin | String | Required, Identifies the general storage area |
 | Inventory | Slot | String | Required, Identifies the specific storage position |
-| Inventory | CaseQuantity | Integer | Required, Number of individual units contained in one case |
-| Inventory | Quantity | Integer | Required, Current inventory quantity |
-| Inventory | MinimumInventory | Integer | Required, Minimum desired inventory level |
-| Inventory | MaximumInventory | Integer | Required, Maximum desired inventory level |
-| Inventory | OnOrder | Integer | Required, Quantity ordered from a supplier but not yet received |
-| Inventory | OrderCase | Integer | Required, Number of cases normally ordered when restocking |
+| Inventory | CaseQuantity | Integer | Required, Number of individual units contained in one case, Must be 0 or greater |
+| Inventory | Quantity | Integer | Required, Current inventory quantity, Must be 0 or greater|
+| Inventory | MinimumInventory | Integer | Required, Minimum desired inventory level, Must be 0 or greater |
+| Inventory | MaximumInventory | Integer | Required, Maximum desired inventory level, Must be 0 or greater |
+| Inventory | OnOrder | Integer | Required, Quantity ordered from a supplier but not yet received, Must be 0 or greater |
+| Inventory | OrderCase | Integer | Required, Number of cases normally ordered when restocking, Must be 0 or greater |
 
 ### Associations
-
 
 - **Warehouse &rarr; Inventory:** A warehouse can have multiple inventory records, and each inventory record belongs to one warehouse
 
@@ -158,7 +159,7 @@
 
 #### Scenario: Cannot delete inventory record with remaining stock (failure / edge)
 
-- **Given** an inventory record has a quantity greater than 0
+- **Given** an inventory record has a quantity or on order greater than 0
 - **And** the user is an authorized Company Admin
 - **When** the Admin attempts to delete the inventory record
 - **Then** the system displays an error message
