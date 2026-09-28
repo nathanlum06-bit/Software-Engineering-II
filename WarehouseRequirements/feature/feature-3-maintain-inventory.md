@@ -63,14 +63,21 @@
 
 - **Inventory:** Represents the amount and location of a specific product stored at a specific warehouse. Includes Inventory ID, Warehouse ID, Product ID, Bin, Slot, Case Quantity, Quantity, Minimum Inventory, Maximum Inventory, On Order, and Order Case.
 
-  - **Bin:** Identifies the general storage area where the product is located.
-  - **Slot:** Identifies the specific position within the bin where the product is stored.
-  - **Case Quantity:** Identifies how many individual units of the product are contained in one case.
-  - **Quantity:** Represents the current amount of the product in inventory.
-  - **Minimum Inventory:** Represents the minimum amount of the product that should normally be kept in inventory.
-  - **Maximum Inventory:** Represents the maximum amount of the product that should normally be kept in inventory.
-  - **On Order:** Represents the quantity of the product that has already been ordered from a supplier but has not yet been received.
-  - **Order Case:** Represents the number of cases normally ordered when restocking the product.
+  - **Bin:** Identifies the general storage area where the product is located
+
+  - **Slot:** Identifies the specific position within the bin where the product is stored
+
+  - **Case Quantity:** Identifies how many individual units of the product are contained in one case
+
+  - **Quantity:** Represents the current amount of the product in inventory
+
+  - **Minimum Inventory:** Represents the minimum amount of the product that should normally be kept in inventory
+
+  - **Maximum Inventory:** Represents the maximum amount of the product that should normally be kept in inventory
+
+  - **On Order:** Represents the quantity of the product that has already been ordered from a supplier but has not yet been received
+  
+  - **Order Case:** Represents the number of cases normally ordered when restocking the product
 
 - **Inventory Record:** Represents the quantity and storage information for a specific product at a specific warehouse.
 ---
