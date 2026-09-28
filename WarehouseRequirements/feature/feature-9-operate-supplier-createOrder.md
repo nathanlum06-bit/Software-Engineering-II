@@ -96,8 +96,8 @@
 | Entity | Attribute | Type | Constraints / Notes |
 |---|---|---|---|
 | Inventory | InventoryID | Integer | Primary Key, Unique Identifier, Required |
-| Inventory | WarehouseID | Integer | Foreign Key → Warehouse, Required |
-| Inventory | ProductID | Integer | Foreign Key → Product, Required |
+| Inventory | WarehouseID | Integer | Foreign Key, Required |
+| Inventory | ProductID | Integer | Foreign Key, Required |
 | Inventory | Quantity | Integer | Required, Must be greater than or equal to 0 |
 | Inventory | MinimumInventory | Integer | Required, Must be greater than or equal to 0 |
 | Inventory | MaximumInventory | Integer | Required, Must be greater than or equal to MinimumInventory |
@@ -109,16 +109,16 @@
 | Entity | Attribute | Type | Constraints / Notes |
 |---|---|---|---|
 | SupplierOrder | OrderID | Integer | Primary Key, Unique Identifier, Required |
-| SupplierOrder | CompanyID | Integer | Foreign Key → Company, Required |
-| SupplierOrder | SupplierID | Integer | Foreign Key → Supplier, Required |
-| SupplierOrder | WarehouseID | Integer | Foreign Key → Warehouse, Required |
+| SupplierOrder | CompanyID | Integer | Foreign Key, Required |
+| SupplierOrder | SupplierID | Integer | Foreign Key, Required |
+| SupplierOrder | WarehouseID | Integer | Foreign Key, Required |
 | SupplierOrder | CustomerNumber | String | Required |
 | SupplierOrder | OrderDate | Date | Required |
 | SupplierOrder | PONumber | String | Unique Purchase Order Number, Required |
 | SupplierOrder | AuthorizedBy | Integer | Required |
 | SupplierOrder | OrderTotal | Decimal | Calculated from Supplier Order Lines, Required |
-| SupplierOrderLine | OrderID | Integer | Foreign Key → SupplierOrder, Required |
-| SupplierOrderLine | SKU | String | Foreign Key → Product, Required |
+| SupplierOrderLine | OrderID | Integer | Foreign Key, Required |
+| SupplierOrderLine | SKU | String | Foreign Key, Required |
 | SupplierOrderLine | Description | String | Required |
 | SupplierOrderLine | Cases | Integer | Required, Must be greater than 0 |
 | SupplierOrderLine | Price | Decimal | Price per case, Required, Must be greater than or equal to 0 |
